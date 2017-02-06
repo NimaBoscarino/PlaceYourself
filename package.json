@@ -13,5 +13,9 @@
     "mongoose": "^4.8.1",
     "pug": "^2.0.0-beta11"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NimaBoscarino/PlaceYourself.git"
+  },
   "devDependencies": {}
 }
