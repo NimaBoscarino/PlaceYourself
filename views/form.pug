@@ -1,0 +1,14 @@
+h4 Create
+
+form(name='create_collection_form', action='/upload', enctype='multipart/form-data', method='post')
+  div(class='row')
+    div(class='six columns')
+      label(for='collectionName') *Collection name
+      input(class='u-full-width', type='text', placeholder='e.g. Doggos on Demand', name='collectionName')
+    div(class='six columns')
+      label(for='collectionImages') *Images
+      input(type='file', name='collectionImages', multiple='multiple', accept='image/*')
+
+  label(fo='collectionDescription') *Description
+  textarea(class='u-full-width', placeholder='e.g. A collection of placeholder dogs!', name='collectionDescription')
+  input(class='button-primary', type='submit', value='Submit')

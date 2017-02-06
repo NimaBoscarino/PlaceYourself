@@ -6,7 +6,6 @@ html(lang="en")
     link(rel='stylesheet', href='/css/skeleton.css')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Playfair+Display|Raleway')
     link(rel='stylesheet', href='/css/styles.css')
-    script(src='/js/validate.min.js')
   body
     div(class='container')
       include header.pug
@@ -14,20 +13,10 @@ html(lang="en")
         div(class='one-half column info partition')
           include docs.pug
         div(class='one-half column submit-form partition')
-          include form.pug
-    script.
-      var validator = new FormValidator('create_collection_form', [{
-        name: 'collectionName',
-        rules: 'required'
-      }, {
-        name: 'collectionImages',
-        rules: 'required'
-      }, {
-        name: 'collectionDescription',
-        rules: 'required'
-      }], function(errors, event) {
-        if (errors.length > 0) {
-          console.log('must fill in all required fields');
-          // TODO actual validation stuff
-        }
-      });
+          h4 #{name}
+          div(class='tileContainer')
+            if !files
+              h5 There isn't anything here!
+            else
+              each file in files
+                img(class='tileImage', src='/uploads/' + name + '/' + file)

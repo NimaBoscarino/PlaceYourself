@@ -23,6 +23,18 @@ hr {
   border-color: grey;
 }
 
+a.nostyle:link {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
+a.nostyle:visited {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
+}
+
 .container {
   height: 100%;
   display: flex;
@@ -43,4 +55,24 @@ hr {
 
 .submit-form {
   flex: 1 1 auto;
+}
+
+.tileImage {
+  height: 6em;
+  width: auto;
+}
+
+.tileContainer {
+  /* We first create a flex layout context */
+  display: flex;
+
+  /* Then we define the flow direction and if we allow the items to wrap
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  flex-flow: row wrap;
+
+  /* Then we define how is distributed the remaining space */
+  justify-content: center;
 }
