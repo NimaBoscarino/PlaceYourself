@@ -1,8 +1,15 @@
 var express = require('express');
 var app = express();
 
+app.use(express.static('public'))
+
 app.get('/', function (req, res) {
-  res.send('Hello World!');
+  const pug = require('pug');
+
+  // Compile template.pug, and render a set of data
+  var page = pug.renderFile('views/index.pug');
+
+  res.send(page);
 })
 
 app.listen(3000, function () {

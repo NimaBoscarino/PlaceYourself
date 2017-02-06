@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+  head
+    title= "Place Yourself"
+    link(rel='stylesheet', href='css/normalize.css')
+    link(rel='stylesheet', href='css/skeleton.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Playfair+Display|Raleway')
+    link(rel='stylesheet', href='css/styles.css')
+  body
+    div(class='container')
+      section(class='header')
+        h1(class='title') Place Yourself
+        hr
+        h4(class='byline') simple custom placeholders
+
+      div(class='row bottom-part')
+        div(class='one-half column info partition')
+          h4 Docs
+        div(class='one-half column submit-form partition')
+          h4 Create
+
+          form
+            div(class='row')
+              div(class='six columns')
+                label(for='collectionName') Collection name
+                input(class='u-full-width', type='text', placeholder='e.g. Doggos on Demand', id='collectionName')
+              div(class='six columns')
+                label(for='collectionImages') Images
+                input(type='file', name='img', multiple='', id='collectionImages')
+
+            label(fo='collectionDescription') Description
+            textarea(class='u-full-width', placeholder='e.g. A collection of placeholder dogs!', id='collectionDescription')
+            input(class='button-primary', type='submit', value='Submit')
