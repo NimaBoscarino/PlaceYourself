@@ -1,0 +1,17 @@
+{
+  "name": "place-yourself",
+  "version": "1.0.0",
+  "description": "Create custom placeholder image API service",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "NimaBoscarino",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1",
+    "mongoose": "^4.8.1",
+    "pug": "^2.0.0-beta11"
+  },
+  "devDependencies": {}
+}
