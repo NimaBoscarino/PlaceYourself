@@ -54,3 +54,6 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# uploaded images
+public/uploads

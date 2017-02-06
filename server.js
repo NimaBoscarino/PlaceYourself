@@ -1,10 +1,11 @@
 var express = require('express');
 var formidable = require('formidable');
 var util = require('util');
+var fs = require('fs-extra');
 
 var app = express();
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 app.get('/', function (req, res) {
   const pug = require('pug');
@@ -27,10 +28,35 @@ app.post('/upload', function(req, res){
         console.log(file.name);
         files.push([field, file]);
     })
-    form.on('end', function() {
-        console.log('done');
+
+    form.on('progress', function(bytesReceived, bytesExpected) {
+        var percent_complete = (bytesReceived / bytesExpected) * 100;
+        console.log(percent_complete.toFixed(2));
+    });
+
+    form.on('error', function(err) {
+        console.error(err);
+    });
+
+    form.on('end', function(fields, files) {
+        var new_location = 'public/uploads/';
+
+        this.openedFiles.forEach(function(openedFile) {
+          var temp_path = openedFile.path;
+          var file_name = openedFile.name;
+
+          fs.copy(temp_path, new_location + file_name, function(err) {
+              if (err) {
+                  console.error(err);
+              } else {
+                  console.log("success!")
+              }
+          });
+
+        })
         res.redirect('/');
     });
+
     form.parse(req);
 });
 
@@ -38,4 +64,4 @@ app.post('/upload', function(req, res){
 
 app.listen(3000, function () {
   console.log('Listening on port 3000!');
-})
+});
