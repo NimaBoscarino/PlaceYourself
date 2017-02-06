@@ -3,5 +3,5 @@ PlaceYourself - Easy custom placeholder image service
 Install
 =======
 
-  npm install
-  node server
+    npm install
+    node server
