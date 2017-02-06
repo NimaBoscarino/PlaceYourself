@@ -6,6 +6,7 @@ html(lang="en")
     link(rel='stylesheet', href='css/skeleton.css')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Playfair+Display|Raleway')
     link(rel='stylesheet', href='css/styles.css')
+    script(src='js/validate.min.js')
   body
     div(class='container')
       section(class='header')
@@ -19,15 +20,31 @@ html(lang="en")
         div(class='one-half column submit-form partition')
           h4 Create
 
-          form
+          form(name='create_collection_form', action='/upload', enctype='multipart/form-data', method='post')
             div(class='row')
               div(class='six columns')
-                label(for='collectionName') Collection name
-                input(class='u-full-width', type='text', placeholder='e.g. Doggos on Demand', id='collectionName')
+                label(for='collectionName') *Collection name
+                input(class='u-full-width', type='text', placeholder='e.g. Doggos on Demand', name='collectionName')
               div(class='six columns')
-                label(for='collectionImages') Images
-                input(type='file', name='img', multiple='', id='collectionImages')
+                label(for='collectionImages') *Images
+                input(type='file', name='collectionImages', multiple='multiple', accept='image/*')
 
-            label(fo='collectionDescription') Description
-            textarea(class='u-full-width', placeholder='e.g. A collection of placeholder dogs!', id='collectionDescription')
+            label(fo='collectionDescription') *Description
+            textarea(class='u-full-width', placeholder='e.g. A collection of placeholder dogs!', name='collectionDescription')
             input(class='button-primary', type='submit', value='Submit')
+    script.
+      var validator = new FormValidator('create_collection_form', [{
+        name: 'collectionName',
+        rules: 'required'
+      }, {
+        name: 'collectionImages',
+        rules: 'required'
+      }, {
+        name: 'collectionDescription',
+        rules: 'required'
+      }], function(errors, event) {
+        if (errors.length > 0) {
+          console.log('must fill in all required fields');
+          // TODO actual validation stuff
+        }
+      });
