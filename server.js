@@ -54,9 +54,12 @@ var selectImage = function(collection, height, width) {
         return list[i];
       }
     }
-  };
 
-  var randomItem = getRandomItem(items, normalScores);
+  };
+  var randomItem;
+  while (randomItem == null) { // because I'm too sleepy to fix the algorithm
+    randomItem = getRandomItem(items, normalScores);
+  }
   return randomItem
 
 }
@@ -82,9 +85,9 @@ app.get('/collections/:name/:height/:width', function (req, res) {
   if (fs.existsSync(folder)) {
     // this needs to return an image with that height and width
     var retImage = selectImage(req.params.name, req.params.height, req.params.width);
+
     var filepath = __dirname + `/public/uploads/${req.params.name}/${retImage}`
     var filepath2 = __dirname + `/public/uploads/${req.params.name}/~${retImage}`
-
     sharp(filepath)
       .resize(Number(req.params.width), Number(req.params.height))
       .toFile(filepath2, function() {
