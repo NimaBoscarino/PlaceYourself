@@ -15,8 +15,4 @@ html(lang="en")
         div(class='one-half column submit-form partition')
           h4 #{name}
           div(class='tileContainer')
-            if !files
-              h5 There isn't anything here!
-            else
-              each file in files
-                img(class='tileImage', src='/uploads/' + name + '/' + file)
+            pre e.g. http://localhost:3000/#{name}/250/300

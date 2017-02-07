@@ -7,7 +7,7 @@ form(name='create_collection_form', action='/upload', enctype='multipart/form-da
       input(class='u-full-width', type='text', placeholder='e.g. Doggos on Demand', name='collectionName')
     div(class='six columns')
       label(for='collectionImages') *Images
-      input(type='file', name='collectionImages', multiple='multiple', accept='image/*')
+      input(type='file', name='collectionImages', multiple='multiple', accept='image/jpeg, image/png')
 
   label(fo='collectionDescription') *Description
   textarea(class='u-full-width', placeholder='e.g. A collection of placeholder dogs!', name='collectionDescription')
