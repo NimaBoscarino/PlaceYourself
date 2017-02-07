@@ -7,4 +7,4 @@ Create your own placeholder image collections
     http://localhost:3000
 ### Choose and submit images for the collection
 ### Access placeholders by height and width
-    e.g. http://localhost:3000/240/500
+    e.g. http://localhost:3000/collections/Dogs/240/500
