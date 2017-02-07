@@ -1,4 +1,5 @@
-## PlaceYourself - Create your own placeholder image collections
+## Place Yourself 🌅 🏞 🏙 
+Create your own placeholder image collections
 
 ### Install and run
     npm install && node server
