@@ -7,6 +7,7 @@ var sizeOf = require('image-size');
 var sharp = require('sharp');
 var app = express();
 
+
 var selectImage = function(collection, height, width) {
   // open up description file, read into object
   // calculate scores
@@ -142,6 +143,11 @@ app.post('/upload', function(req, res){
             }
         });
 
+        const pathToDefs = 'public/defs'
+        if (!fs.existsSync(pathToDefs)){
+          fs.mkdirSync(pathToDefs);
+        }
+      
         var def = `public/defs/${fields.collectionName}.json`;
         fs.ensureDir(new_location, function (err) {
           fs.writeFileSync(def, JSON.stringify(sizes) , 'utf-8');
