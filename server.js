@@ -72,14 +72,14 @@ app.get('/', function (req, res) {
   res.send(page);
 });
 
-app.get('/collections/:name', function (req, res) {
+app.get('/:name', function (req, res) {
   var page = pug.renderFile('views/collection.pug', {
     name: req.params.name,
   });
   res.send(page);
 });
 
-app.get('/collections/:name/:height/:width', function (req, res) {
+app.get('/:name/:height/:width', function (req, res) {
   const folder = 'public/uploads/' + req.params.name + '/';
 
   if (fs.existsSync(folder)) {
@@ -149,7 +149,7 @@ app.post('/upload', function(req, res){
 
       });
 
-      res.redirect('/collections/' + fields.collectionName);
+      res.redirect('/' + fields.collectionName);
 
     });
     // right now you don't get all the images, because I'm loading stuff serverside
